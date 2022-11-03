@@ -1,0 +1,23 @@
+#Tweaking Speed
+
+Runner.instance_.setSpeed(1000)
+
+#Immortality
+#After every command press enter. All the commands are case-sensitive.
+#We store the original game over function in a variable:
+
+var original = Runner.prototype.gameOver
+
+#Then, we make the game over function empty:
+Runner.prototype.gameOver = function(){}
+
+#Stopping the game after using Immortality
+Runner.prototype.gameOver = original
+
+#Setting the current score
+Runner.instance_.distanceRan = 12345 / Runner.instance_.distanceMeter.config.COEFFICIENT
+
+#Dino jumping too high?
+#You can control how high the dino jumps by using the below function. Adjust the value as necessary.
+
+Runner.instance_.tRex.setJumpVelocity(10)
